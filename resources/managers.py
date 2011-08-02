@@ -1,0 +1,1 @@
+# resources/managers.py
