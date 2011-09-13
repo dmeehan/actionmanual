@@ -14,7 +14,7 @@ except (IOError, OSError):
 
 setup(
     name='actionmanual',
-    version=projects.get_version(),
+    version=actionmanual.get_version(),
     description='Documenting ideas and projects on vacant land',
     long_description=long_description,
     author='Douglas Meehan',
