@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import projects
+import actionmanual
 import os
 
 try:
