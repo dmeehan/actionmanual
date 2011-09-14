@@ -35,26 +35,26 @@ urlpatterns = patterns('',
     (r'^search/', include('haystack.urls')),
     
     # home page
-    url(r'^$', 'actionmanual.actionmanual.home.views.index', name="home"),
+    url(r'^$', 'actionmanual.home.views.index', name="home"),
 
     #Comment
     (r'^comments/', include('django.contrib.comments.urls')),
     
     # Portfolio:
-    (r'^share/', include('actionmanual.actionmanual.portfolio.urls.share')),
-    (r'^explore/', include('actionmanual.actionmanual.portfolio.urls.explore')),
+    (r'^share/', include('actionmanual.portfolio.urls.share')),
+    (r'^explore/', include('actionmanual.portfolio.urls.explore')),
     
     # Resources:
     (r'^resources/', include('actionmanual.resources.urls')),
 
     # About:
-    url(r'^about/', 'actionmanual.actionmanual.about.views.about_index', name="about"),
+    url(r'^about/', 'actionmanual.about.views.about_index', name="about"),
     
     # Contacts:
-    (r'^contacts/', include('actionmanual.actionmanual.contacts.urls')),
+    (r'^contacts/', include('actionmanual.contacts.urls')),
     
     # Posts:
-    (r'^posts/', include('actionmanual.actionmanual.posts.urls')),
+    (r'^posts/', include('actionmanual.posts.urls')),
     
      #Tags:
     (r'^tags/$',
