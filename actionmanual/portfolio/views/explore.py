@@ -20,16 +20,24 @@ def get_city_list():
 
 
 def explore_index(request):
-    def get_project_list():
+    def get_recent_list():
         ideas = Idea.published.order_by('-date_published')[:2]
         precedents = Precedent.published.order_by('-date_published')[:1]
-        projects = sorted(
+        recent = sorted(
                     chain(ideas, precedents),
                     key=attrgetter('date_published'),
                     reverse=True)
-        return projects
-    recent = get_project_list()
-    featured = Idea.published.filter(featured=True)
+        return recent
+    def get_featured_list():
+        ideas = Idea.published.filter(featured=True)
+        precedents = Precedent.published.filter(featured=True)
+        featured = sorted(
+                    chain(ideas, precedents),
+                    key=attrgetter('date_published'),
+                    reverse=True)
+        return featured
+    recent = get_recent_list()
+    featured = get_featured_list()
     categories = Category.objects.all()
     cities = Idea.published.values_list('city', flat=True).distinct().order_by()
     return object_list(request,
@@ -37,6 +45,7 @@ def explore_index(request):
                        template_object_name='featured',
                        template_name='portfolio/explore_index.html',
                        extra_context={'recent': recent,
+                                      'featured': featured,
                                       'categories': categories,
                                       'cities': cities })
                                       
