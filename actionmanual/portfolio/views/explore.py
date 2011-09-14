@@ -36,13 +36,13 @@ def explore_index(request):
                     key=attrgetter('date_published'),
                     reverse=True)
         return featured
+    ideas = Idea.published.filter(featured=True)
     recent = get_recent_list()
     featured = get_featured_list()
     categories = Category.objects.all()
     cities = Idea.published.values_list('city', flat=True).distinct().order_by()
     return object_list(request,
-                       queryset=featured,
-                       template_object_name='featured',
+                       queryset=ideas,
                        template_name='portfolio/explore_index.html',
                        extra_context={'recent': recent,
                                       'featured': featured,
