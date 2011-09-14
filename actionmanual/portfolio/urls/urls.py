@@ -5,7 +5,7 @@ from tagging.views import tagged_object_list
 
 from actionmanual.portfolio.models import *
 
-urlpatterns = patterns('actionmanual.actionmanual.portfolio.views',
+urlpatterns = patterns('actionmanual.portfolio.views',
 
     # explore index
     url(r'^$', 'explore_index', name="explore"),

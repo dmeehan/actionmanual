@@ -5,7 +5,7 @@ from tagging.views import tagged_object_list
 
 from actionmanual.portfolio.models import *
 
-urlpatterns = patterns('actionmanual.actionmanual.portfolio.views.share',
+urlpatterns = patterns('actionmanual.portfolio.views.share',
 
     # share index
     url(r'^$', 'share_index', name="share"),

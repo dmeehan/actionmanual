@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 from actionmanual.categories.models import *
 from actionmanual.portfolio.models import Idea, Precedent
 
-urlpatterns = patterns('actionmanual.actionmanual.categories.views',
+urlpatterns = patterns('actionmanual.categories.views',
 
     # explore by category
     url(r'^$', 'category_index', name="explore"),
