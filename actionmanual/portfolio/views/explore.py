@@ -8,9 +8,7 @@ from django.views.generic.list_detail import object_list, object_detail
 from tagging.models import Tag, TaggedItem
 from tagging.views import tagged_object_list
 
-from actionmanual.utils import QuerySetSequence
 from actionmanual.portfolio.models import *
-from actionmanual.sections.models import *
 from actionmanual.categories.models import *
     
 
